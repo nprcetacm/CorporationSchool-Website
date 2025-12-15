@@ -4,6 +4,7 @@ import MainPage from '../Components/MainPage'
 import AboutUs from '../Components/AboutUs'
 import SchoolToppers from '../Components/SchoolToppers'
 import TamilThaiPlayer from '../Components/TamilThaiPlayer'
+import Footer from '../Components/Footer'
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
     <MainPage/>
     <AboutUs/>
     <SchoolToppers/>
+    <Footer />
     </>
     )
 }
