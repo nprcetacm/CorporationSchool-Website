@@ -8,6 +8,7 @@ import CurriculamPage from './Pages/CurriculamPage'
 import NoticeBoardPage from './Pages/NoticeBoardPage'
 import PhotoGalleryPage from './Pages/PhotoGalleryPage'
 import AchievementsPage from './Pages/AchievementsPage'
+import LoginPage from './Pages/LoginPage'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/noticeboard" element={<NoticeBoardPage/>} />
         <Route path="/photos" element={<PhotoGalleryPage />} />
         <Route path='/achievements' element={<AchievementsPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
       </Routes>
     </>
   )
