@@ -12,6 +12,7 @@ export default function Footer() {
     { name: 'About Us', path: '/history' },
     { name: 'Academics', path: '/curriculum' },
     { name: 'Admissions', path: '/admission-process' },
+    // { name: 'Library', path: '/lib' }, // Added Library here
     { name: 'Achievements', path: '/achievements' },
     { name: 'Contact Us', path: '/contact' }
   ];
@@ -132,9 +133,9 @@ export default function Footer() {
             <h4 className="text-white font-bold text-sm mb-3">Facilities</h4>
             <div className="flex flex-wrap gap-2">
               {facilities.map((item, index) => (
-                <span key={index} className="text-xs bg-slate-800 text-gray-400 px-3 py-1 rounded-full border border-slate-700 hover:border-pink-500 hover:text-white transition-all cursor-default">
+                <Link key={index} to={item.path} className="text-xs bg-slate-800 text-gray-400 px-3 py-1 rounded-full border border-slate-700 hover:border-pink-500 hover:text-white transition-all cursor-pointer">
                   {item.name}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
