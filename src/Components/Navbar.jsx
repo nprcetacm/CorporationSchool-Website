@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Menu, X, LogIn } from 'lucide-react';
+import { ChevronDown, Menu, X, LogIn, Sparkles } from 'lucide-react';
 import logo from "../schoolassets/newSchoollogo.png"
 import { Link } from 'react-router-dom';
 import TamilThaiPlayer from './TamilThaiPlayer';
@@ -27,6 +27,12 @@ export default function Navbar() {
         { name: 'Special Programs', path:'/specialprog' }
       ]
     },
+    // Special Item
+    { 
+      name: 'Digital Library', 
+      path: '/lib',
+      isSpecial: true 
+    },
     {
       name: 'Admission',
       dropdown: [
@@ -38,7 +44,6 @@ export default function Navbar() {
     {
       name: 'Facilities',
       dropdown: [
-        { name: 'Library', path: '/lib' },
         { name: 'Laboratory', path: '/lab' },
         { name: 'Pure Water', path: '/water' },
       ]
@@ -52,13 +57,7 @@ export default function Navbar() {
       ]
     },
     { name: 'Achievements', path:'/achievements'},
-    {
-      name: 'Alumni',
-      dropdown: [
-        { name: 'Success Stories', path: '/admission-process' },
-      ]
-    },
-    { name:'Contact Us',path:'/contact' }
+    { name:'Contact',path:'/contact' } // Shortened 'Contact Us' to 'Contact' to save space
   ];
 
   const handleMouseEnter = (itemName) => {
@@ -78,13 +77,14 @@ export default function Navbar() {
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Fixed width to prevent compression */}
-          <div className="flex-shrink-0">
-            <img className="h-16 w-auto" src={logo} alt="School Logo" />
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <img className="h-12 w-auto sm:h-16" src={logo} alt="School Logo" />
           </div>
 
-          {/* Desktop Menu - Centered navigation items */}
-          <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
+          {/* Desktop Menu - CHANGED lg:flex TO xl:flex */}
+          {/* This ensures the menu only appears on wider screens where there is enough space */}
+          <div className="hidden xl:flex items-center justify-center flex-1 mx-4">
             <div className="flex items-center space-x-1">
               {navItems.map((item) => (
                 <div
@@ -120,8 +120,13 @@ export default function Navbar() {
                   ) : (
                     <Link
                       to={item.path}
-                      className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap"
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 whitespace-nowrap flex items-center gap-1.5
+                        ${item.isSpecial 
+                          ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent font-bold hover:scale-105' 
+                          : 'text-gray-700 hover:text-indigo-600'
+                        }`}
                     >
+                      {item.isSpecial && <Sparkles className="w-4 h-4 text-fuchsia-500" />}
                       {item.name}
                     </Link>
                   )}
@@ -130,8 +135,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right side - TamilThaiPlayer and Login */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          {/* Right side - CHANGED lg:flex TO xl:flex */}
+          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
             <TamilThaiPlayer/>
             
             <Link
@@ -143,10 +148,10 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - CHANGED lg:hidden TO xl:hidden */}
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="lg:hidden text-gray-700 hover:text-indigo-600 p-2"
+            className="xl:hidden text-gray-700 hover:text-indigo-600 p-2"
           >
             {mobileMenu ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -155,7 +160,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenu && (
-        <div className="lg:hidden bg-white border-t border-gray-200">
+        <div className="xl:hidden bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <div key={item.name}>
@@ -173,12 +178,12 @@ export default function Navbar() {
                       />
                     </button>
                     {openDropdown === item.name && (
-                      <div className="pl-4 space-y-1">
+                      <div className="pl-4 space-y-1 bg-gray-50 rounded-lg">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.path}
-                            className="block px-3 py-2 text-sm text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-md transition-colors"
+                            className="block px-3 py-2 text-sm text-gray-600 hover:text-indigo-600 rounded-md transition-colors"
                           >
                             {subItem.name}
                           </Link>
@@ -189,8 +194,13 @@ export default function Navbar() {
                 ) : (
                   <Link
                     to={item.path}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md transition-colors"
+                    className={`block px-3 py-2 text-base font-medium rounded-md transition-colors flex items-center gap-2
+                      ${item.isSpecial
+                        ? 'text-fuchsia-600 font-bold bg-fuchsia-50'
+                        : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-600'
+                      }`}
                   >
+                    {item.isSpecial && <Sparkles className="w-4 h-4" />}
                     {item.name}
                   </Link>
                 )}
@@ -200,13 +210,13 @@ export default function Navbar() {
             {/* Mobile Login Button */}
             <Link
               to="/login"
-              className="flex items-center justify-center gap-2 mx-3 my-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
+              className="flex items-center justify-center gap-2 mx-3 my-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
             >
               <LogIn className="w-5 h-5" />
               Login
             </Link>
           </div>
-          <div className="px-4 py-3">
+          <div className="px-4 py-3 border-t border-gray-100">
             <TamilThaiPlayer/>
           </div>
         </div>

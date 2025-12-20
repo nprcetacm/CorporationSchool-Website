@@ -5,6 +5,7 @@ import AboutUs from '../Components/AboutUs'
 import SchoolToppers from '../Components/SchoolToppers'
 import TamilThaiPlayer from '../Components/TamilThaiPlayer'
 import Footer from '../Components/Footer'
+import SchoolMap from '../Components/SchoolMap';
 
 function Home() {
   return (
@@ -14,7 +15,9 @@ function Home() {
     <MainPage/>
     <AboutUs/>
     <SchoolToppers/>
+    <SchoolMap />
     <Footer />
+
     </>
     )
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, BookOpen, Users, Award, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Award, Sparkles, Feather } from 'lucide-react';
 import bgimg from '../schoolassets/bghd.png'
 
 export default function MainPage() {
@@ -60,20 +60,40 @@ export default function MainPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center min-h-screen pt-24 pb-16">
+      <div className="relative z-10 flex items-center min-h-screen pt-28 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Side - Text Content */}
-            <div className="text-white space-y-8">
-              <div className="space-y-4">
-                <div className="inline-block">
-                  <span className="bg-yellow-400/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-yellow-400/30">
-                    Welcome to Corporation Higher Secondary School, Sundararajapuram.
-                  </span>
+            <div className="text-white space-y-6 md:space-y-8">
+              
+              <div className="space-y-6">
+                {/* --- FIXED: Welcome Badge --- */}
+                {/* Changed to div and added max-w to ensure proper wrapping on small screens */}
+                <div className="inline-block max-w-full">
+                  <div className="bg-yellow-400/20 text-yellow-300 px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold backdrop-blur-sm border border-yellow-400/30 leading-relaxed whitespace-normal">
+                    Welcome to Corporation Higher Secondary School
+                  </div>
+                </div>
+
+                {/* --- FIXED: THIRUKKURAL SECTION --- */}
+                {/* Adjusted font sizes for mobile (text-lg) vs desktop (text-2xl) */}
+                <div className="bg-white/10 backdrop-blur-md border-l-4 border-yellow-400 p-4 rounded-r-xl max-w-xl hover:bg-white/15 transition-colors duration-300">
+                  <div className="flex gap-3">
+                    <Feather className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-50 leading-relaxed font-serif tracking-wide">
+                        "கற்க கசடறக் கற்பவை கற்றபின் <br />
+                        நிற்க அதற்குத் தக."
+                      </p>
+                      <p className="text-gray-300 text-xs sm:text-sm italic mt-2">
+                        - திருக்குறள் (391)
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
                   Where Dreams
                   <br />
                   Meet{' '}
@@ -89,7 +109,7 @@ export default function MainPage() {
                   </span>
                 </h1>
 
-                <p className="text-xl text-gray-200 leading-relaxed max-w-xl">
+                <p className="text-lg sm:text-xl text-gray-200 leading-relaxed max-w-xl">
                   Nurturing young minds with excellence in education, character building, 
                   and creating future leaders who make a difference in the world.
                 </p>
@@ -99,38 +119,38 @@ export default function MainPage() {
               <div className="flex flex-wrap gap-4">
                 <a 
                   href="#admission-process"
-                  className="group bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 hover:shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 hover:scale-105"
+                  className="group bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg flex items-center gap-2 hover:shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 hover:scale-105"
                 >
                   Apply Now
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a 
                   href="#about"
-                  className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105"
                 >
                   Learn More
                 </a>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8">
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-4 sm:pt-8 border-t border-white/10">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-yellow-300">28+</div>
-                  <div className="text-sm text-gray-300 mt-1">Years Legacy</div>
+                  <div className="text-2xl sm:text-4xl font-bold text-yellow-300">28+</div>
+                  <div className="text-xs sm:text-sm text-gray-300 mt-1">Years Legacy</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-pink-300">288</div>
-                  <div className="text-sm text-gray-300 mt-1">Students</div>
+                  <div className="text-2xl sm:text-4xl font-bold text-pink-300">288</div>
+                  <div className="text-xs sm:text-sm text-gray-300 mt-1">Students</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-purple-300">98%</div>
-                  <div className="text-sm text-gray-300 mt-1">Success Rate</div>
+                  <div className="text-2xl sm:text-4xl font-bold text-purple-300">98%</div>
+                  <div className="text-xs sm:text-sm text-gray-300 mt-1">Success Rate</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side - Feature Cards */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* Right Side - Feature Cards (Hidden on very small mobile if needed, or stacked) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {highlights.map((item, index) => (
                 <div
                   key={index}
@@ -156,7 +176,7 @@ export default function MainPage() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="hidden sm:block absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <span className="text-white/60 text-sm">Scroll to explore</span>
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
