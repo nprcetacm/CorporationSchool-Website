@@ -385,7 +385,7 @@ export default function ClassStructure() {
               </ul>
             </div>
 
-            {/* DOWNLOADS WIDGET */}
+            {/* DOWNLOADS WIDGET
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
               <h3 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <Download className="w-5 h-5 text-gray-500" />
@@ -405,7 +405,7 @@ export default function ClassStructure() {
                   <Download className="w-4 h-4 text-gray-400 group-hover:text-indigo-600" />
                 </button>
               </div>
-            </div>
+            </div> */}
 
           </div>
 

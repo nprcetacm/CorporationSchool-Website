@@ -12,6 +12,7 @@ import LoginPage from './Pages/LoginPage'
 import LibraryPage from './Pages/LibraryPage'; 
 import FacultyPage from './Pages/FacultyPage'
 import ClassStructPage from './Pages/ClassStructurePage';
+import SpecialProgPage from './Pages/SpecialProgPage';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/lib" element={<LibraryPage />} />
         <Route path="/faculty" element={<FacultyPage />} />
         <Route path="/classstruct" element={<ClassStructPage />} />
+        <Route path="/specialprog" element={<SpecialProgPage />} />
 
         
       </Routes>
